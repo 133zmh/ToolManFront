@@ -1,0 +1,5 @@
+@import url("//cdn.staticfile.org/element-ui/2.13.0/theme-chalk/index.css");
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 750px;
+}
