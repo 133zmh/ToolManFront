@@ -1,57 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>在线转换图像文件</title>
-    <meta name="description" content="在线转换图像文件 - 将图像文件从一种格式转换为另一种格式，比如PNG到JPG，JPG到PNG，HEIC到JPG，WEBP到JPG，DDS到PNG，PNG到SVG等。" />
+    <title>在线裁剪图像文件</title>
+    <meta name="description" content="在线裁剪图像文件" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@1.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@1.0.0/build/grids-responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.4.3/dist/cropper.min.css">
+    <style>
+        #image-editor { width: 100%; height: 400px; text-align: center; }
+        #image-editor img { display: block; max-width: 100%; max-height: 100%; }
+        #action-bar { text-align: center; }
+        #width, #height { width: 5em; }
+        #main {max-width:768px;padding-left:10px;padding-right:10px}
+        #main label.pure-button { float: left; margin: 0; }
+        #file, #save { display: none; }
+        .r { float: right; }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse" role="banner">
         <a class="navbar-brand hidden-xs" href="../../index.html"> T <i class="fa fa-refresh fa-spin"></i> OL&nbspMAN </a>
-            <!-- 右上角的东西，如果没什么需要做的就删掉 -->
-		    <ul class="nav navbar-nav">
-                <li class="notification-dropdown dropdown">
-                    <a href="#" class="trigger dropdown-toggle">
-                        <i class="fa fa-language"></i> 
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="pop-dialog dropdown-menu">
-                        <li><a href="">English</a></li>
-                        <li class="active"><a href="">中文简体</a></li>
-                   </ul>
-                </li>
-                <li class="notification-dropdown dropdown">
-                    <a href="#" class="trigger dropdown-toggle">
-                        <i class="fa fa-refresh"></i> 
-                        <b class="caret"></b>
-                    </a>
-                    <div class="pop-dialog">
-                        <div class="pointer right">
-                            <div class="arrow"></div>
-                            <div class="arrow_border"></div>
-                        </div>
-                        <div class="body">
-                          <form>
-                            <a href="#" class="close-icon"><i class="fa fa-close"></i></a>
-                            <div class="notifications">
-                                <p>快速转换</p>
-                                <div class="item">
-                                    <i class="fa fa-sign-in"></i>无需进入目录，直接选择源文件和目标格式，然后点击“开始转换”按钮快速开始转换。
-                                </div>
-                                <div class="item">
-                                    <i class="fa fa-sign-in"></i><input name="qfile" type="file" />
-                                </div>
-                                <div class="footer">
-                                    <input type="submit" class="btn btn-info btn-sm" value="开始转换" />
-                                </div>
-                            </div>
-                          </form>
-                        </div>
-                    </div>
-                </li>
-            </ul>
     </div>
     <div id="sidebar-nav">
         <ul id="dashboard-menu">
@@ -96,11 +67,112 @@
   </div>
 
     <div id="pad-wrapper" class="form-page">
-		<h1>在线裁剪图像文件</h1>
+        <h1>在线裁剪图像文件</h1>
+        <div id="main" class="pure-form">
+            <div id="image-editor" class="cropper-bg"><img id="image" /></div>
+            <p id="action-bar">
+                <label for="file" class="pure-button">选择图片</label>
+                <input type="file" accept="image/png, image/jpeg, image/png" id="file">
+                宽高比：<input type="number" min="1" value="1600" id="width" placeholder="宽" /> × <input type="number" min="1" value="1200" id="height" placeholder="高" />
+                <label><input type="checkbox" id="resize" checked />缩放模式</label>
+                <label><input type="checkbox" id="whitebg" checked />白底</label>
+                <span class="r">
+                    <button type="button" id="build" class="pure-button pure-button-primary">生成图片</button>
+                    <a id="save" class="pure-button">下载图片</a>
+                </span>
+            </p>
+        </div>
 	</div>
 	
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/cropperjs@1.4.3/dist/cropper.min.js"></script>
+<script>
+    if (!window.URL || !window.FileReader) {
+        document.getElementById('main').innerHTML = '您使用的浏览器 Out 了。';
+    }
+    var resize = true;
+    var whitebg = true;
+    var width = 1600;
+    var height = 1200;
+    var cropper = new Cropper(document.getElementById('image'), {
+        dragMode: 'move',
+        aspectRatio: width / height,
+        autoCropArea: 1,
+        movable: false,
+        rotatable: false,
+        scalable: false,
+        zoomable: true,
+        crop: function () {
+            document.getElementById('save').style.display = 'none';
+        }
+    });
+    var resizeCanvas = document.createElement('canvas');
+    var resizeCtx = resizeCanvas.getContext('2d');
+    var filename;
+    var blobURL;
+    document.getElementById('width').onchange = function () {
+        width = Number(this.value);
+        cropper.setAspectRatio(width / height);
+    }
+    document.getElementById('height').onchange = function () {
+        height = Number(this.value);
+        cropper.setAspectRatio(width / height);
+    }
+    document.getElementById('resize').onchange = function () {
+        resize = this.checked;
+    }
+    document.getElementById('whitebg').onchange = function () {
+        whitebg = this.checked;
+    }
+    document.getElementById("file").onchange = function () {
+        var files = this.files;
+        var file = files[0];
+        if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+            alert('无效图片');
+            return;
+        }
+        filename = file.name.split('.')[0];
+        var reader = new FileReader();
+        reader.addEventListener('load', event => {
+            cropper.replace(event.target.result);
+            document.getElementById('save').style.display = 'none';
+        }, false);
+        reader.addEventListener('error', event => {
+            console.log(event);
+        }, false);
+        reader.readAsDataURL(file);
+    }
+    document.getElementById("build").onclick = function () {
+        var canvas = cropper.getCroppedCanvas();
+        if (!canvas) {
+            alert('无效操作');
+            return;
+        }
+        if (resize) {
+            resizeCanvas.width = width;
+            resizeCanvas.height = height;
+        } else {
+            resizeCanvas.width = canvas.width;
+            resizeCanvas.height = canvas.height;
+        }
+        resizeCtx.fillStyle = 'white';
+        if (whitebg) resizeCtx.fillRect(0, 0, resizeCanvas.width, resizeCanvas.height);
+        resizeCtx.drawImage(canvas, 0, 0, resizeCanvas.width, resizeCanvas.height);
+        if (resizeCanvas.toBlob) {
+            resizeCanvas.toBlob(function (blob) {
+                URL.revokeObjectURL(blobURL);
+                blobURL = URL.createObjectURL(blob);
+                document.getElementById('save').href = blobURL;
+                document.getElementById('save').style.display = 'inline-block';
+            });
+        } else {
+            document.getElementById('save').href = resizeCanvas.toDataURL();
+            document.getElementById('save').style.display = 'inline-block';
+        }
+        document.getElementById('save').download = filename + '_' + width + 'x' + height + '.png';
+    }
+</script>
 <script src="../../assets/js/jquery.min.js"></script>
 <script src="../../assets/js/forms.min.js"></script>
 
