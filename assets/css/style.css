@@ -597,19 +597,12 @@ input[type=checkbox],input[type=radio] {
 	margin:4px 0 0;
 	line-height:normal
 }
-input[type=file] {
-	display:block
-}
 input[type=range] {
 	display:block;
 	width:100%
 }
 select[multiple],select[size] {
 	height:auto
-}
-input[type=checkbox]:focus,input[type=file]:focus,input[type=radio]:focus {
-	outline:5px auto -webkit-focus-ring-color;
-	outline-offset:-2px
 }
 output {
 	display:block;
@@ -1777,11 +1770,6 @@ select {
 	border-color:#d0dde9;
 	border-radius:2px;
 	font-size:13px
-}
-input[type=file] {
-	font-size:13px;
-	line-height:13px;
-	display:inline-block
 }
 input[disabled],input[readonly],textarea[disabled],textarea[readonly] {
 	color:#b1b1b1
