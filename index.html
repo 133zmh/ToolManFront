@@ -59,7 +59,7 @@
         <p>【文件上传demo】</p>
         <div id="test" style="width: 350px">
             <el-upload
-              action="https://jsonplaceholder.typicode.com/posts/"
+              action="https://toolmanback.utools.club"
               drag
               :limit="1"
               accept="image/*"
@@ -85,6 +85,7 @@
 <script src="assets/js/forms.min.js"></script>
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/element-ui.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 var Main = {
   methods: {
@@ -96,7 +97,7 @@ var Main = {
     },
     beforeRemove(file, fileList) {
       return this.$confirm(`确定移除 ${ file.name }？`);
-    }
+    },
   }
 }
 var CTest = Vue.extend(Main)

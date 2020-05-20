@@ -5,6 +5,7 @@
     <meta name="description" content="在线音频转换文字" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
 </head>
 <body>
@@ -43,27 +44,61 @@
             </li>
         </ul>
     </div>
-<div class="content">
-  <div class="function-menu">
-    <ul class="menu">
-      <li><i class="fa fa-square"></i> 识别</li>
-      <li><a href="upend.html"><i class="fa fa-square-o"></i> 倒放</a></li>
-    </ul>
-  </div>
-
+    <div class="content">
+    <div class="function-menu">
+        <ul class="menu">
+         <li><i class="fa fa-square"></i> 识别</li>
+         <li><a href="upend.html"><i class="fa fa-square-o"></i> 倒放</a></li>
+     </ul>
+     </div>
     <div id="pad-wrapper" class="form-page">
 		<h1>在线音频转换文字</h1>
+        <form  id="audio-upload-form"  enctype="multipart/form-data" >
+            <input type="file" name="audio" required accept="audio/*" autocomplete="off" id="audio-upload-in">
+        </form>
+        <button id="audio-upload-btn" onclick = upload()>上传</button>
 	</div>
-	
-</div>
-
-<script src="../../assets/js/jquery.min.js"></script>
-<script src="../../assets/js/forms.min.js"></script>
-
-    <div class="navbar-inverse">
-        <div class="navbar-inner">
-            <span class="foottext">版权所有 &copy; 软工小组。</span>
-        </div>
+        <audio src="" id="audio-ASR"></audio>
     </div>
+
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/forms.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function upload() {
+
+            var formData = new FormData($("#audio-upload-form")[0]);
+            axios({
+                method: 'get',
+                url: 'https://toolman.utools.club/audio/wav2Mp3',
+                data: formData,
+
+            })
+            .then(function (response) {
+
+            })
+
+            /*$.ajax({
+                url:"https://toolman.utools.club/audio/wav2Mp3",//设置接口的url
+                type:"GET",//设置通信方式
+                data: formData,//设置传递的数据
+                cache: false,//设置为不缓存
+                dataType:"",//设置接收返回的对象类型
+                processData: false,
+                contentType: false,
+
+                success:function () {
+                    alert("err")
+                },
+
+                err: function () {
+                    alert("err")
+                }
+            })*/
+        }
+
+
+    </script>
+
 </body>
 </html>
