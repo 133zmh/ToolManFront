@@ -54,12 +54,24 @@
 		</div>
 		<div id="pad-wrapper" class="form-page">
 			<h1>在线转换音频文件</h1>
-			<input type="file" name="fileName1" id="fileName1"/>
-			<p></p>
-			<input type="button" onclick="sendToUser()" id="sendToUser" value="提交" />
-			<div id="download">
-				<a href="#">Download</a>
-			</div>
+            <div>
+                <input type="file" accept="audio/*" name="fileName1" id="fileName1"/>
+            </div>
+            <div>
+                <label>目标格式：</label>
+                <div class="ui-select">
+                    <select name="audio_trans" id="audio_trans">
+                        <option value="mp3">mp3</option>
+                        <option value="wav">wav</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <input type="button" onclick="sendToUser()" id="sendToUser_converse" value="提交" />
+            </div>
+            <div id="download">
+                <a href="#">download</a>
+            </div>
 		</div>
     </div>
 
