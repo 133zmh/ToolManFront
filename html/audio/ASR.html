@@ -48,17 +48,27 @@
         <div class="function-menu">
             <ul class="menu">
                 <li><i class="fa fa-square"></i> 识别</li>
-                <li><a href="converse.html"><i class="fa fa-square-o"></i> 倒放</a></li>
+                <li><a href="converse.html"><i class="fa fa-square-o"></i> 转换</a></li>
             </ul>
         </div>
         <div id="pad-wrapper" class="form-page">
-		    <h1>在线音频转换文字</h1>
-
+		    <h1>在线音频识别文字</h1>
+            <div>
+                <input type="file" accept="audio/*" name="fileName_ASR" id="fileName_ASR"/>
+            </div>
+            <div>
+                <input type="button" onclick="audioASR()" id="audioASR" value="提交" />
+            </div>
+            <div id="download">
+                <a href="#">download</a>
+            </div>
 	    </div>
     </div>
 
     <script src="../../assets/js/jquery.min.js"></script>
     <script src="../../assets/js/forms.min.js"></script>
+    <script src="../../assets/js/audio.js"></script>
+    <script src="../../assets/js/url.js"></script>
 
 
 </body>

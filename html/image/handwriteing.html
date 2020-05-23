@@ -56,11 +56,21 @@
     <div id="pad-wrapper" class="form-page">
 		<h1>在线转换图像文件</h1>
 	</div>
-	
+    <div>
+        <input type="file" accept="image/*" name="fileName_hand" id="fileName_hand"/>
+    </div>
+    <div>
+        <input type="button" onclick="imageHand()" id="imageHand" value="提交" />
+    </div>
+    <div>
+        <text id = "information_back"></text>
+    </div>
 </div>
 
 <script src="../../assets/js/jquery.min.js"></script>
 <script src="../../assets/js/forms.min.js"></script>
+    <script src="../../assets/js/image.js"></script>
+    <script src="../../assets/js/url.js"></script>
 
     <div class="navbar-inverse">
         <div class="navbar-inner">

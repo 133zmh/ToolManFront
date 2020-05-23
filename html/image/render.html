@@ -56,11 +56,39 @@
     <div id="pad-wrapper" class="form-page">
 		<h1>在线渲染图像文件</h1>
 	</div>
-	
+    <div>
+        <input type="file" accept="image/*" name="fileName_render" id="fileName_render"/>
+    </div>
+    <div>
+        <label>渲染效果：</label>
+        <div class="ui-select">
+            <select name="audio_trans" id="img_render">
+                <option value="0">玻璃效果</option>
+                <option value="1">万花筒效果</option>
+                <option value="2"></option>
+                <option value="3">镜像效果</option>
+                <option value="4">水下效果</option>
+                <option value="5">模拟水面波纹效果</option>
+                <option value="6">灰度图</option>
+                <option value="7">反转色彩</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <input type="button" onclick="imageRender()" id="imageRender" value="提交" />
+    </div>
+    <div>
+        <a id="back_img" href=""></a>
+    </div>
+    <div id="download">
+        <a href="#">download</a>
+    </div>
 </div>
 
 <script src="../../assets/js/jquery.min.js"></script>
 <script src="../../assets/js/forms.min.js"></script>
+    <script src="../../assets/js/image.js"></script>
+    <script src="../../assets/js/url.js"></script>
 
     <div class="navbar-inverse">
         <div class="navbar-inner">
