@@ -30,9 +30,10 @@ function sendToUserDocument(){ //在这里进行ajax 文件上传 用户的信�
         success : function(data){
             console.log(data);
             alert("文件上传成功!");
-            alert(selectValue.val());
-            y='<a download="file" href="'+data.data+'">Download</a>'
-            document.getElementById("download").innerHTML=y;
+            $("#a_doc_download").attr("href", data.data);
         }
     });
+}
+function downloadPic() {
+    window.open($("#a_doc_download").attr("href"))
 }

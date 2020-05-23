@@ -42,8 +42,7 @@ function sendToUser(){ //在这里进行ajax 文件上传 用户的信息
         success : function(data){
             console.log(data);
             alert("文件上传成功!");
-            y='<a download="audio.mp3" href="'+data.data+'">Download</a>'
-            document.getElementById("download").innerHTML=y;
+            $("#a_audio_download").attr("href", data.data);
         }
     });
 }
@@ -76,8 +75,11 @@ function audioASR() {
         success : function(data){
             console.log(data);
             alert("文件上传成功!");
-            y='<a download="audio.wav" href="'+data.data+'">Download</a>'
-            document.getElementById("download").innerHTML=y;
+            $("#a_audio_download").attr("href", data.data);
         }
     });
+}
+
+function downloadAudio() {
+    window.open($("#a_audio_download").attr("href"))
 }

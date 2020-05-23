@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html>
 <head>
     <title>在线转换图像文件</title>
@@ -6,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@1.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@1.0.0/build/grids-responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.4.3/dist/cropper.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/img-ui.css">
 </head>
 <body>
     <div class="navbar navbar-inverse" role="banner">
@@ -97,34 +102,32 @@
 
     <div id="pad-wrapper" class="form-page">
 		<h1>在线渲染图像文件</h1>
-	</div>
-    <div>
-        <input type="file" accept="image/*" name="fileName_render" id="fileName_render"/>
-    </div>
-    <div>
-        <label>渲染效果：</label>
-        <div class="ui-select">
-            <select name="audio_trans" id="img_render">
-                <option value="0">玻璃效果</option>
-                <option value="1">万花筒效果</option>
-                <option value="2"></option>
-                <option value="3">镜像效果</option>
-                <option value="4">水下效果</option>
-                <option value="5">模拟水面波纹效果</option>
-                <option value="6">灰度图</option>
-                <option value="7">反转色彩</option>
-            </select>
+        <div id="main_render" class="pure-form" style="float: left; width: 600px" >
+            <div id="image-editor" class="cropper-bg"><img id="image" /></div>
+            <p id="action-bar">
+                <label for="file" class="pure-button">选择图片</label>
+                <input type="file" accept="image/*" id="file" name="file"/>
+                渲染效果：
+                <select name="audio_trans" id="img_render">
+                    <option value="0">玻璃效果</option>
+                    <option value="1">万花筒效果</option>
+                    <option value="2"> ? </option>
+                    <option value="3">镜像效果</option>
+                    <option value="4">水下效果</option>
+                    <option value="5">模拟水面波纹效果</option>
+                    <option value="6">灰度图</option>
+                    <option value="7">反转色彩</option>
+                </select>
+                <span class="r">
+                    <button type="button" id="upload_render" class="pure-button pure-button-primary" onclick="imageRender()">上传图片</button>
+                    <a id="download_render" class="pure-button" download="">下载图片</a>
+                </span>
+            </p>
         </div>
-    </div>
-    <div>
-        <input type="button" onclick="imageRender()" id="imageRender" value="提交" />
-    </div>
-    <div>
-        <a id="back_img" href=""></a>
-    </div>
-    <div id="download">
-        <a href="#">download</a>
-    </div>
+        <div id="div_img_render_back" style="float: left; width: 600px">
+            <img src="" id="img_render_back">
+        </div>
+	</div>
 </div>
 
 <script src="../../assets/js/jquery.min.js"></script>

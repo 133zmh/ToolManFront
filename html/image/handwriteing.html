@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@1.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@1.0.0/build/grids-responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.4.3/dist/cropper.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/img-ui.css">
 </head>
 <body>
     <div class="navbar navbar-inverse" role="banner">
@@ -97,16 +101,26 @@
 
     <div id="pad-wrapper" class="form-page">
 		<h1>在线转换图像文件</h1>
+        <div id="main" class="pure-form" style="float: left; width: 768px">
+            <div id="image-editor" class="cropper-bg">
+                <img id="image" />
+            </div>
+            <p id="action-bar">
+                <label for="file" class="pure-button">选择图片</label>
+                <input type="file" accept="image/*" id="file" name="file"/>
+                <span class="r">
+                    <button type="button" id="upload_hand" class="pure-button pure-button-primary" onclick="imageHand()">上传图片</button>
+                    <a id="download_hand" class="pure-button" download="">下载图片</a>
+                </span>
+            </p>
+        </div>
+        <div style="float: left">
+            <textarea cols="30" id="result_back" readonly>
+
+            </textarea>
+        </div>
 	</div>
-    <div>
-        <input type="file" accept="image/*" name="fileName_hand" id="fileName_hand"/>
-    </div>
-    <div>
-        <input type="button" onclick="imageHand()" id="imageHand" value="提交" />
-    </div>
-    <div>
-        <text id = "information_back"></text>
-    </div>
+
 </div>
 
 <script src="../../assets/js/jquery.min.js"></script>

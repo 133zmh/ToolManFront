@@ -1,0 +1,21 @@
+#div_doc_input{
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+#div_doc_select{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#div_doc_button{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#img_doc_download{
+    float: left;
+    margin: 0;
+    width: 75px;
+    height: 75px;
+}
+#a_doc_download{
+    display: none;
+}

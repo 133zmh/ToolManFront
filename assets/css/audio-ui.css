@@ -1,0 +1,25 @@
+.div_audio_input_class{
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+.div_audio_button_class{
+    margin-top: 25px;
+    margin-bottom: 25px;
+ }
+.div_audio_download_class{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.div_audio_select_class{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#img_audio_download{
+    float: left;
+    margin: 0;
+    width: 75px;
+    height: 75px;
+}
+#a_audio_download{
+    display: none;
+}
