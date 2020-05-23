@@ -1,4 +1,4 @@
-posturl = "http://localhost:9010";
+//posturl = "http://localhost:9010";
 
 function sendToUserDocument(){ //在这里进行ajax 文件上传 用户的信息
     var $file1 = $("input[name='fileNameDodument']").val();//用户文件内容(文件)

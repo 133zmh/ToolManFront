@@ -1,4 +1,4 @@
-posturl = "http://localhost:9010";
+//posturl = "http://localhost:9010";
 
 function imageHand() {
     var $file1 = $("input[name='fileName_hand']").val();
@@ -63,6 +63,7 @@ function imageCom() {
             alert($("#img_com_size").val());
             y='<a download="file" href="'+data.data+'">Download</a>'
             document.getElementById("download").innerHTML=y;
+            $("#back_img").href = data.data;
         }
     });
 }
