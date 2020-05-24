@@ -155,3 +155,7 @@ function logout(){
     alert("已退出! ");
     window.location.href='';
 }
+
+if (loginstate == '1'){
+    document.getElementById("loginimg").innerHTML='<div id="loginimg"><img src="'+localimage+'" height="21"><b class="caret"></b></div>';
+}

@@ -1,1 +1,1 @@
-var posturl = "http://localhost:9010";
+var posturl = "http://47.93.53.85:9050";
