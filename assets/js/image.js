@@ -17,7 +17,7 @@ function imageHand() {
 
     var formData = new FormData();//这里需要实例化一个FormData来进行文件上传
     formData.append("picture", $("#file")[0].files[0]);
-    formData.append("username", "cj");
+    formData.append("username", localusername);
     $.ajax({
         type : "post",
         url : posturl+"/image/handwriteingREC",
@@ -50,7 +50,7 @@ function imageCom() {
     var formData = new FormData();//这里需要实例化一个FormData来进行文件上传
     formData.append("picture", $("#file")[0].files[0]);
     formData.append("size", $("#img_com_size").val());
-    formData.append("username", "cj");
+    formData.append("username", localusername);
     $.ajax({
         type : "post",
         url : posturl+"/image/imagecompress",
@@ -84,7 +84,7 @@ function imageRender() {
     var formData = new FormData();//这里需要实例化一个FormData来进行文件上传
     formData.append("style", selectValue.val());
     formData.append("picture", $("#file")[0].files[0]);
-    formData.append("username", "cj");
+    formData.append("username", localusername);
     $.ajax({
         type : "post",
         url : posturl+"/image/imagerendering",

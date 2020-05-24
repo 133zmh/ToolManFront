@@ -5,6 +5,7 @@
     <meta name="description" content="在线压缩图像文件" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" href="../../assets/ico/工程师0.png" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@1.0.0/build/pure-min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@1.0.0/build/grids-responsive.css">
@@ -13,7 +14,51 @@
 </head>
 <body>
     <div class="navbar navbar-inverse" role="banner">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" id="menu-toggler">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
         <a class="navbar-brand hidden-xs" href="../../index.html"> T <i class="fa fa-refresh fa-spin"></i> OL&nbspMAN </a>
+        <ul class="nav navbar-nav">
+            <li class="notification-dropdown dropdown">
+                <a href="#" class="trigger dropdown-toggle">
+                    <div id="loginimg">
+                        <img src="../../assets/ico/工程师0.png" height="21">
+                        <b class="caret"></b>
+                    </div>
+                </a>
+                <div class="pop-dialog">
+                    <div class="pointer right">
+                        <div class="arrow"></div>
+                        <div class="arrow_border"></div>
+                    </div>
+                    <div class="body">
+                        <a href="#" class="close-icon"><i class="fa fa-close"></i></a>
+                        <div class="notifications" id="loginform">
+                            <div id="loginhead">
+                                <p>用户登录</p>
+                            </div>
+                            <div class="item">
+                                <i class="fa fa-sign-in"></i>
+                                用户名：<input type="text" name="username" id="username" style="position:absolute;left:115px;border:1px solid #5BC0DE"/>
+                            </div>
+                            <div class="item">
+                                <i class="fa fa-sign-in"></i>
+                                密码：<input type="password" name="password" id="password" style="position:absolute;left:115px;border:1px solid #5BC0DE"/>
+                            </div>
+                            <div id="registeradd">
+                            </div>
+                            <div class="footer" id="registerchange">
+                                <input type="submit" class="btn btn-info btn-sm" onclick="login()" id="login" value="确认" />&nbsp;
+                                <input type="submit" class="btn btn-info btn-sm" onclick="registeradd()" value="注册" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
     <div id="sidebar-nav">
         <ul id="dashboard-menu">
@@ -81,6 +126,7 @@
     <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.4.3/dist/cropper.min.js"></script>
     <script src="../../assets/js/image.js"></script>
     <script src="../../assets/js/url.js"></script>
+    <script src="../../assets/js/login.js"></script>
 
 
     <div class="navbar-inverse">

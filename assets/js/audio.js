@@ -32,7 +32,7 @@ function sendToUser(){ //在这里进行ajax 文件上传 用户的信息
         postUrl = posturl + "/audio/mp32Wave"
     }
     formData.append("source", $("#fileName1")[0].files[0]);
-    formData.append("username", "cj");
+    formData.append("username", localusername);
     $.ajax({
         type : "post",
         url : postUrl,
@@ -65,7 +65,7 @@ function audioASR() {
     var type = "file";
     var formData = new FormData();//这里需要实例化一个FormData来进行文件上传
     formData.append("source", $("#fileName_ASR")[0].files[0]);
-    formData.append("username", "cj");
+    formData.append("username", localusername);
     $.ajax({
         type : "post",
         url : posturl+"/audio/audiofromavi",

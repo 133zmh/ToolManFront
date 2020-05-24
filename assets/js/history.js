@@ -16,7 +16,9 @@ var Main = new Vue({
                     if(deletebutton < 2){
                         document.getElementById("deletebutton").innerHTML='';
                     }
-                    Main.tableData = record.data;
+                    if(record.msg!="成功返回null记录"){
+                        Main.tableData = record.data;
+                    }
                 }
             });
         },

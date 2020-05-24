@@ -4,7 +4,7 @@ user = '<h5><img src="'+localimage+'" style="height:70px"></h5>'
 +'<h5>邮箱：<cac style="position:absolute;left:120px;">'+localemail+'</cac></h5>'
 +'<button class="btn btn-info" onclick="edituser()">编辑</button>';
 
-user1 ='<h5><img src="'+localimage+'" style="height:70px"><input type="file" accept="image/*" name="userimg" id="userimg"/></h5>'
+user1 ='<h5><img src="'+localimage+'" style="height:70px">&nbsp;&nbsp;&nbsp;<input type="file" accept="image/*" name="userimg" id="userimg" value="上传头像"/></h5>'
 +'<h5>用户名：<input type="text" value="'+localusername+'" readonly="true" style="position:absolute;left:120px;border:1px solid #5BC0DE"/></h5>'
 +'<h5>昵称：<input type="text" name="name" id="name" value="'+localname+'" style="position:absolute;left:120px;border:1px solid #5BC0DE"/></h5>'
 +'<h5>邮箱：<input type="text" name="email" id="email" value="'+localemail+'" readonly="true" style="position:absolute;left:120px;border:1px solid #5BC0DE"/></h5>'
@@ -25,11 +25,6 @@ function edit(){
     $name = $("input[name='name']").val();
     $checknumber = $("input[name='checknumber']").val();
     $file1 = $("input[name='userimg']").val();
-    if ($file1 == "") {
-        imgurl=localimage;
-    }else{
-        imgurl="";
-    }
     size1 = $("input[name='userimg']")[0].files[0].size;
     if (size1>1048576) {
         alert("图片不能大于1M!");

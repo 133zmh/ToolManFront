@@ -20,7 +20,7 @@ function sendToUserDocument(){ //在这里进行ajax 文件上传 用户的信�
     var selectValue = $("#document_trans option:selected")
     formData.append("source", $("#fileNameDocument")[0].files[0]);
     formData.append("format", "png");
-    formData.append("username","cj");
+    formData.append("username",localusername);
     $.ajax({
         type : "post",
         url : posturl+"/document/documentChange",
