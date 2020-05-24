@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/document-ui.css">
 </head>
 <body>
     <div class="navbar navbar-inverse" role="banner">
@@ -92,32 +93,34 @@
             </ul>
         </div>
 
-    <div id="pad-wrapper" class="form-page">
-		<h1>在线转换文档格式</h1>
-	</div>
-    <div>
-        <input type="file" name="fileNameDocument" id="fileNameDocument"/>
-    </div>
-    <div>
-        <label>目标格式：</label>
-        <div class="ui-select">
-            <select name="document_trans" id="document_trans">
-                <option value="html">html</option>
-                <option value="png">png</option>
-                <option value="jpeg">jpeg</option>
-                <option value="doc">doc</option>
-                <option value="docx">docx</option>
-                <option value="pdf">pdf</option>
-            </select>
+        <div id="pad-wrapper" class="form-page">
+            <h1>在线转换文档格式</h1>
+            <div id="div_doc_input">
+                <input type="file" name="fileNameDocument" id="fileNameDocument"/>
+            </div>
+            <div id="div_doc_select">
+                <label>目标格式：</label>
+                <div class="ui-select">
+                    <select name="document_trans" id="document_trans">
+                        <option value="html">html</option>
+                        <option value="png">png</option>
+                        <option value="jpeg">jpeg</option>
+                        <option value="doc">doc</option>
+                        <option value="docx">docx</option>
+                        <option value="pdf">pdf</option>
+                    </select>
+                </div>
+            </div>
+            <div id="div_doc_button">
+                <input type="button" onclick="sendToUserDocument()" id="sendToUserDocument" value="提交" />
+            </div>
+            <div id="div_doc_download">
+                <img id="img_doc_download" src="../../img/download.png" onclick="downloadPic()">
+                <a id="a_doc_download" href="">download</a>
+            </div>
         </div>
-    </div>
-    <div>
-        <input type="button" onclick="sendToUserDocument()" id="sendToUserDocument" value="提交" />
-    </div>
-    <div id="download">
-        <a href="#">download</a>
-    </div>
-	
+
+
     </div>
 
     <script src="../../assets/js/jquery.min.js"></script>

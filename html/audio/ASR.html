@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/audio-ui.css">
 </head>
 <body>
     <div class="navbar navbar-inverse" role="banner">
@@ -94,15 +95,16 @@
             </ul>
         </div>
         <div id="pad-wrapper" class="form-page">
-		    <h1>在线音频识别文字</h1>
-            <div>
+		    <h1>在线提取音频文件</h1>
+            <div class="div_audio_input_class">
                 <input type="file" accept="audio/*" name="fileName_ASR" id="fileName_ASR"/>
             </div>
-            <div>
+            <div class="div_audio_button_class">
                 <input type="button" onclick="audioASR()" id="audioASR" value="提交" />
             </div>
-            <div id="download">
-                <a href="#">download</a>
+            <div class="div_audio_download_class" >
+                <img src="../../img/download.png" id="img_audio_download" onclick="downloadAudio()">
+                <a href="" id="a_audio_download"></a>
             </div>
 	    </div>
     </div>

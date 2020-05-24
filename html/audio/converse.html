@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="../../assets/css/element-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/audio-ui.css" />
 </head>
 <body>
     <div class="navbar navbar-inverse" role="banner">
@@ -96,10 +97,10 @@
 		</div>
 		<div id="pad-wrapper" class="form-page">
 			<h1>在线转换音频文件</h1>
-            <div>
+            <div class="div_audio_input_class">
                 <input type="file" accept="audio/*" name="fileName1" id="fileName1"/>
             </div>
-            <div>
+            <div class="div_audio_select_class">
                 <label>目标格式：</label>
                 <div class="ui-select">
                     <select name="audio_trans" id="audio_trans">
@@ -108,11 +109,12 @@
                     </select>
                 </div>
             </div>
-            <div>
+            <div class="div_audio_button_class">
                 <input type="button" onclick="sendToUser()" id="sendToUser_converse" value="提交" />
             </div>
-            <div id="download">
-                <a href="#">download</a>
+            <div class="div_audio_input_class">
+                <img src="../../img/download.png" id="img_audio_download" onclick="downloadAudio()">
+                <a href="" id="a_audio_download"></a>
             </div>
 		</div>
     </div>
