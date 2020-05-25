@@ -8,6 +8,7 @@
     <link rel="icon" href="../../assets/ico/工程师0.png" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="../../assets/css/document-ui.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/element-ui.css">
 </head>
 <body>
     <div class="navbar navbar-inverse" role="banner">
@@ -99,31 +100,52 @@
         <div id="pad-wrapper" class="form-page">
             <h1>在线转换文档格式</h1>
             <div id="div_doc_input">
-                <input type="file" name="fileNameDocument" id="fileNameDocument"/>
+                <label>
+                    <input type="file" name="fileNameDocument" id="fileNameDocument" style="position:absolute;opacity:0;width: 200px; width: 200px" onchange="changeFileImg()">
+                    <img id="img_doc_input" src="../../img/areaUpload.png" style="width: 200px; width: 200px">
+                    <br/>
+                    <text id="text_filename" style="" ></text>
+                </label>
             </div>
-            <div id="div_doc_select">
-                <label>目标格式：</label>
-                <div class="ui-select">
-                    <select name="document_trans" id="document_trans">
-                        <option value="html">html</option>
-                        <option value="png">png</option>
-                        <option value="jpeg">jpeg</option>
-                        <option value="doc">doc</option>
-                        <option value="docx">docx</option>
-                        <option value="pdf">pdf</option>
-                    </select>
+            <div id="dic_doc_control" >
+                <div id="div_doc_select">
+                    <label>目标格式：</label>
+                    <div class="ui-select">
+                        <select name="document_trans" id="document_trans">
+                            <option value="html">html</option>
+                            <option value="png">png</option>
+                            <option value="jpeg">jpeg</option>
+                            <option value="doc">doc</option>
+                            <option value="docx">docx</option>
+                            <option value="pdf">pdf</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_doc_arrow">
+                    <img src="../../img/long-arrow-right.png" style="width: 100%;height: 100px">
+                </div>
+                <div id="div_doc_button">
+                    <button class="btn btn-info" onclick="sendToUserDocument()" id="sendToUserDocument">
+                        转换文件
+                    </button>
                 </div>
             </div>
-            <div id="div_doc_button">
-                <input type="button" onclick="sendToUserDocument()" id="sendToUserDocument" value="提交" />
-            </div>
-            <div id="div_doc_download">
-                <img id="img_doc_download" src="../../img/download.png" onclick="downloadPic()">
-                <a id="a_doc_download" href="">download</a>
+            <div id="div_doc_back">
+                <img id="img_doc_back" src="../../img/html.png" alt="" style="width: 200px; width: 200px">
+                <br/>
+                <label>
+                    <text id="text_filename_back"></text>
+                </label>
+                <br/>
+                <div id="div_doc_download">
+                    <button id="img_doc_download" class="btn btn-info btn-sm" onclick="downloadPic()">
+                        下载文件
+                    </button>
+                    <a id="a_doc_download" href="">download</a>
+                </div>
             </div>
         </div>
-
-
     </div>
 
     <script src="../../assets/js/jquery.min.js"></script>

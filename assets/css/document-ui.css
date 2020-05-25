@@ -1,6 +1,17 @@
 #div_doc_input{
+    float: left;
+    width: 30%;
+    height: 250px;
     margin-top: 50px;
     margin-bottom: 25px;
+    text-align: center
+
+}
+#dic_doc_control{
+    float: left;
+    width: 30%;
+    height: 250px;
+    text-align: center
 }
 #div_doc_select{
     margin-top: 25px;
@@ -10,12 +21,19 @@
     margin-top: 25px;
     margin-bottom: 25px;
 }
-#img_doc_download{
+#div_doc_back{
     float: left;
-    margin: 0;
-    width: 75px;
-    height: 75px;
+    width: 30%;
+    height: 250px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    text-align: center
 }
+
 #a_doc_download{
     display: none;
+}
+
+#text_filename{
+    float: none;
 }
