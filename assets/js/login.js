@@ -146,7 +146,8 @@ if (loginstate == '1'){
 }
 function logout(){
     window.localStorage.removeItem('loginstate');
-    window.localStorage.removeItem('username');
+    window.localStorage.setItem('username','default');
+    localusername =  window.localStorage.getItem('username');
     window.localStorage.removeItem('password');
     window.localStorage.removeItem('name');
     window.localStorage.removeItem('email');
@@ -157,5 +158,8 @@ function logout(){
 }
 
 if (loginstate == '1'){
-    document.getElementById("loginimg").innerHTML='<div id="loginimg"><img src="'+localimage+'" height="21"><b class="caret"></b></div>';
+    document.getElementById("loginimg").innerHTML='<div id="loginimg"><img src="'+localimage+'" style="height:21px;width: 21px;border-radius: 50%;align-items: center;justify-content: center;overflow: hidden;"><b class="caret"></b></div>';
+}else{
+    window.localStorage.setItem('username','default');
+    localusername =  window.localStorage.getItem('username');
 }

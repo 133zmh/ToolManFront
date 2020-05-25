@@ -2,11 +2,12 @@
 <html>
 <head>
     <title>个人中心</title>
-    <meta name="description" content="在线压缩图像文件" />
+    <meta name="description" content="个人中心" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="icon" href="../../assets/ico/工程师0.png" type="image/x-icon"/>
-    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/element-ui.css">
 </head>
 <body>
     <div class="navbar navbar-inverse" role="banner">
@@ -92,14 +93,54 @@
   <div class="function-menu">
     <ul class="menu">
       <li><i class="fa fa-square"></i> 个人中心</li>
-      <li><a href="history.html"><i class="fa fa-square-o"></i> 历史记录</a></li>
     </ul>
   </div>
 
     <div id="pad-wrapper" class="form-page">
-        <h1>个人中心</h1>
+        <h1>个人信息</h1>
         <div id="yonghu">
-            <h5>请登录</h5>
+            <div id="yonghu0"></div>
+            <br><div style="float: left;"><h1>历史记录</h1></div>
+            <div id="app">
+                <template>
+                  <el-table
+                    :data="tableData"
+                    height="300"
+                    style="width: 100%">
+                    <el-table-column
+                      label="类别">
+                      <template slot-scope="scope">
+                          <p>{{ scope.row.type }}</p>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      label="操作">
+                      <template slot-scope="scope">
+                          <p>{{ scope.row.descreption }}</p>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      label="时间">
+                      <template slot-scope="scope">
+                        <i class="el-icon-time"></i>
+                        <span style="margin-left: 10px">{{ scope.row.createTime }}</span>
+                      </template>
+                    </el-table-column>
+                    <el-table-column>
+                      <template slot-scope="scope">
+                        <el-button
+                          size="mini"
+                          type="danger"
+                          @click="deleteone(scope.row.uuid)">删除</el-button>
+                      </template>
+                    </el-table-column>
+                  </el-table>
+                  <br>
+                    <div id = deletebutton>
+                        <el-button type="danger" @click="deleteall()">全部删除</el-button>
+                    </div>
+                </template>
+            </div>
         </div>
 	</div>
 	
@@ -109,6 +150,8 @@
 <script src="../../assets/js/forms.min.js"></script>
 <script src="../../assets/js/url.js"></script>
 <script src="../../assets/js/login.js"></script>
+<script src="../../assets/js/vue.js"></script>
+<script src="../../assets/js/element-ui.js"></script>
 <script src="../../assets/js/user.js"></script>
 
     <div class="navbar-inverse">
