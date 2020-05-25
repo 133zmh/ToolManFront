@@ -32,7 +32,6 @@ function sendToUserDocument(){ //在这里进行ajax 文件上传 用户的信�
             var url = data.data;
             alert("文件上传成功!");
             $("#a_doc_download").attr("href", data.data);
-            alert(selectValue);
             var index = url.lastIndexOf("/");
             var filename = url.substring(index+1);//文件名
             $("#text_filename_back").text(filename);

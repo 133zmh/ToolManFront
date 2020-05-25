@@ -96,7 +96,7 @@ function imageRender() {
             console.log(data);
             alert("文件上传成功!");
             $("#download_render")[0].href = data.data;
-            $("#img_render_back").attr("src", data.data)
+            $("#img_render_back").attr("src", data.data+'?'+Math.random())
         }
     });
 }
@@ -120,3 +120,4 @@ function getObjectURL(file) {
     }
     return url ;
 }
+

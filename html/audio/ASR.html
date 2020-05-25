@@ -99,15 +99,32 @@
         </div>
         <div id="pad-wrapper" class="form-page">
 		    <h1>在线提取音频文件</h1>
-            <div class="div_audio_input_class">
-                <input type="file" accept="audio/*" name="fileName_ASR" id="fileName_ASR"/>
+            <div id="div_audio_input">
+                <label> <input type="file" accept="" name="fileName1" id="fileName1" style="position:absolute;opacity:0;width: 200px; width: 200px" onchange="changeFileImg()"/>
+                    <img id="img_audio_input" src="../../img/areaUpload.png" style="width: 200px; width: 200px">
+                    <br/>
+                    <text id="text_filename"></text>
+                </label>
             </div>
-            <div class="div_audio_button_class">
-                <input type="button" onclick="audioASR()" id="audioASR" value="提交" />
+
+            <div id="div_audio_control">
+                <div id="div_doc_arrow">
+                    <img src="../../img/long-arrow-right.png" style="width: 100%;height: 100px" onclick="audioASR()">
+                </div>
             </div>
-            <div class="div_audio_download_class" >
-                <img src="../../img/download.png" id="img_audio_download" onclick="downloadAudio()">
-                <a href="" id="a_audio_download"></a>
+            <div id="div_audio_back">
+                <img id="img_audio_back" src="../../img/wav.png"  style="width: 200px; width: 200px">
+                <br/>
+                <label>
+                    <text id="text_filename_back"></text>
+                </label>
+                <br/>
+                <div id="div_doc_download">
+                    <button id="img_doc_download" class="btn btn-info btn-sm" onclick="downloadAudio()">
+                        下载文件
+                    </button>
+                    <a href="" id="a_audio_download"></a>
+                </div>
             </div>
 	    </div>
     </div>
