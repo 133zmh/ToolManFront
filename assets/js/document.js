@@ -19,7 +19,7 @@ function sendToUserDocument(){ //在这里进行ajax 文件上传 用户的信�
     var formData = new FormData();//这里需要实例化一个FormData来进行文件上传
     var selectValue = $("#document_trans option:selected").val()
     formData.append("source", $("#fileNameDocument")[0].files[0]);
-    formData.append("format", selectValue.val());
+    formData.append("format", selectValue);
     formData.append("username",localusername);
     $.ajax({
         type : "post",
@@ -27,14 +27,22 @@ function sendToUserDocument(){ //在这里进行ajax 文件上传 用户的信�
         data : formData,
         processData : false,
         contentType : false,
+        async: true,
+
+        beforeSend: function () {
+            $("#img_click_trans").attr("src", "../../img/pic.gif");
+        },
+        complete: function () {
+            $("#img_click_trans").attr("src", "../../img/clicktrans1.png");
+        },
         success : function(data){
             console.log(data);
             var url = data.data;
-            alert("文件上传成功!");
             $("#a_doc_download").attr("href", data.data);
             var index = url.lastIndexOf("/");
             var filename = url.substring(index+1);//文件名
             $("#text_filename_back").text(filename);
+            $("#img_click_trans").attr("src", "../../img/clicktrans1.png");
         }
     });
 }
@@ -91,4 +99,5 @@ function changeFileImg(){
             break;
     };
     $("#text_filename").text(filename);
+    $("#img_click_trans").attr("src", "../../img/clicktrans.png")
 }

@@ -40,14 +40,20 @@ function sendToUser(){ //在这里进行ajax 文件上传 用户的信息
         data : formData,
         processData : false,
         contentType : false,
+        beforeSend: function () {
+            $("#img_click_trans").attr("src", "../../img/pic.gif");
+        },
+        complete: function () {
+            $("#img_click_trans").attr("src", "../../img/clicktrans1.png");
+        },
         success : function(data){
             var url = data.data;
             console.log(data);
-            alert("文件上传成功!");
             $("#a_audio_download").attr("href", data.data);
             var index = url.lastIndexOf("/");
             var filename = url.substring(index+1);//文件名
             $("#text_filename_back").text(filename);
+            $("#img_click_trans").attr("src", "../../img/clicktrans1.png");
         }
     });
 }
@@ -77,14 +83,20 @@ function audioASR() {
         data : formData,
         processData : false,
         contentType : false,
+        beforeSend: function () {
+            $("#img_click_trans").attr("src", "../../img/pic.gif");
+        },
+        complete: function () {
+            $("#img_click_trans").attr("src", "../../img/clicktrans1.png");
+        },
         success : function(data){
             var url = data.data;
             console.log(data);
-            alert("文件上传成功!");
             $("#a_audio_download").attr("href", data.data);
             var index = url.lastIndexOf("/");
             var filename = url.substring(index+1);//文件名
             $("#text_filename_back").text(filename);
+            $("#img_click_trans").attr("src", "../../img/clicktrans1.png");
         }
     });
 }
@@ -106,6 +118,7 @@ function changeFileImg(){
             break;
     };
     $("#text_filename").text(filename);
+    $("#img_click_trans").attr("src", "../../img/clicktrans.png");
 }
 
 
