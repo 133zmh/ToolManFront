@@ -19,8 +19,14 @@
     color: black;
 }
 
+
 #div_img_render_back{
+    max-width: 600px;
     width: 600px;
     height: 400px;
     background-color: wheat;
+}
+#div_img_render_back img{
+    max-width: 100%;
+    max-height: 100%;
 }
