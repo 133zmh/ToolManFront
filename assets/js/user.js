@@ -53,9 +53,6 @@ if (loginstate != '1'){
                     success : function(data){
                         console.log(data);
                         Main.update();
-                        if(data.code==200){
-                            alert("成功删除！");
-                        }
                         if(data.code==500){
                             alert("删除失败！");
                         }
@@ -63,20 +60,20 @@ if (loginstate != '1'){
                 });
             },
             deleteall(){
-                $.ajax({
-                    type : "delete",
-                    url : posturl+"/record/allRecord/"+localusername,
-                    success : function(data){
-                        console.log(data);
-                        Main.update();
-                        if(data.code==200){
-                            alert("成功删除！");
+                var r=confirm("确定删除全部记录？")
+                if (r==true){
+                    $.ajax({
+                        type : "delete",
+                        url : posturl+"/record/allRecord/"+localusername,
+                        success : function(data){
+                            console.log(data);
+                            Main.update();
+                            if(data.code==500){
+                                alert("删除失败！");
+                            }
                         }
-                        if(data.code==500){
-                            alert("删除失败！");
-                        }
-                    }
-                });
+                    });
+                }
             }
         }
     });

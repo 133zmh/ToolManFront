@@ -17,7 +17,6 @@ function login(){ //在这里进行ajax 文件上传 用户的信息
         url : posturl+"/user/"+$username+"?password="+$password,
         success : function(data){
             console.log(data);
-            alert(data.msg);
             if (data.msg=="登陆成功"){
                 window.localStorage.setItem('loginstate','1');
                 window.localStorage.setItem('username',data.data.username);
@@ -26,6 +25,8 @@ function login(){ //在这里进行ajax 文件上传 用户的信息
                 window.localStorage.setItem('email',data.data.email);
                 window.localStorage.setItem('image',data.data.image);
                 window.location.href='';
+            }else{
+                alert(data.msg);
             }
         }
     });
@@ -153,7 +154,6 @@ function logout(){
     window.localStorage.removeItem('email');
     window.localStorage.removeItem('image');
     loginstate =  window.localStorage.getItem('loginstate');
-    alert("已退出! ");
     window.location.href='';
 }
 
