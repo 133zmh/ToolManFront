@@ -26,7 +26,7 @@ function imageHand() {
         contentType : false,
         success : function(data){
             console.log(data);
-            alert("文件上传成功!");
+            alert("图片识别成功!");
             $("#result_back").text(data.data);
         }
     });
@@ -59,7 +59,7 @@ function imageCom() {
         contentType : false,
         success : function(data){
             console.log(data);
-            alert("文件上传成功!");
+            alert("图片压缩成功!");
             $("#download_compress")[0].href = data.data;
         }
     });
@@ -94,7 +94,7 @@ function imageRender() {
         cache:false,
         success : function(data){
             console.log(data);
-            alert("文件上传成功!");
+            alert("图片渲染成功!");
             $("#download_render")[0].href = data.data;
             $("#img_render_back").attr("src", data.data+'?'+Math.random())
         }
